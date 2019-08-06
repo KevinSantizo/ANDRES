@@ -1,0 +1,30 @@
+{% extends 'stock/base.html' %}
+
+{% block login %}
+    {% block title %}<title>Inicia Sesion</title>{% endblock %}
+    <div class="offset-sm-1">
+        <div class="row">
+            <div class="col col-md-10">
+                <h1 class="display-3 text-center">Inicio de Sesion</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-5 offset-sm-3">
+            <div class="border p-4">
+                <form action="{% url 'users:authorize' %}" method="POST">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <p><label>Email: </label>
+                            <input type="text" class="form-control form-control-sm" name="email">
+                        </p>
+                        <p><label>Password: </label>
+                            <input type="password" class="form-control form-control-sm" name="password">
+                        </p>
+                        <p><input type="submit" class="btn btn-primary" value="Login"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
